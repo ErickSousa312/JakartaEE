@@ -16,15 +16,15 @@ public class LoginServletTest extends HttpServlet {
         String password = req.getParameter("password");
         System.out.println("Username: " + username);
         System.out.println("Password: " + password);
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         if(username.equals("admin") && password.equals("admin")){
             req.getSession().setAttribute("username", username);
             req.getSession().setAttribute("password", password);
-            resp.sendRedirect("/restrict");
+            resp.sendRedirect("restrict");
         }else {
             System.out.println("entrou aqui23");
             req.setAttribute("errorMessage", "Invalid username or password");

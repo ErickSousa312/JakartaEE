@@ -54,9 +54,20 @@ public class ControllerEjb extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//      Exemplo passando parameters
+
+//        String name = request.getParameter("name");
+//        String email = request.getParameter("email");
+//
+//        // Redirecionando para ServletB com parâmetros na URL
+//        response.sendRedirect(request.getContextPath() + "/servletB?name=" + name + "&email=" + email);
 
         String name = req.getParameter("name");
         String email = req.getParameter("email");
+
+        Cookie cookie = new Cookie("name", name);
+        cookie.setMaxAge(60*60);
+        resp.addCookie(cookie);
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("text/html");
