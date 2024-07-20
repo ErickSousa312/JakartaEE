@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Product Management</title>
+</h:head>
+<h:body>
+    <h1>Product Management</h1>
+
+    <h:form id="productForm">
+        <p:messages autoUpdate="true" />
+
+        <h:panelGrid columns="2">
+            <h:outputLabel for="name" value="Name:" />
+            <p:inputText id="name" value="#{productController.newProduct.name}" required="true" />
+
+            <h:outputLabel for="price" value="Price:" />
+            <p:inputText id="price" value="#{productController.newProduct.price}" required="true" />
+        </h:panelGrid>
+
+        <p:commandButton value="Save" action="#{productController.saveProduct}" update="productTable" />
+
+        <h2>Products List</h2>
+        <p:dataTable id="productTable" var="product" value="#{productController.products}" paginator="true"
+                     rows="10" emptyMessage="No products found.">
+            <p:column headerText="ID">
+                <h:outputText value="#{product.id}" />
+            </p:column>
+            <p:column headerText="Name">
+                <h:outputText value="#{product.name}" />
+            </p:column>
+            <p:column headerText="Price">
+                <h:outputText value="#{product.price}" />
+            </p:column>
+            <p:column headerText="Actions">
+                <p:commandButton value="Delete" action="#{productController.deleteProduct(product.id)}"
+                                 update="productTable" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

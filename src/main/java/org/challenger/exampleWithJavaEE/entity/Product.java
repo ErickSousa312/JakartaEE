@@ -1,7 +1,8 @@
-package org.challenger.exampleWithJavaEE;
+package org.challenger.exampleWithJavaEE.entity;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,8 +10,8 @@ import jakarta.persistence.Id;
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
-@Named
-@RequestScoped
+
+@Entity
 public class Product implements Serializable {
 
     @Serial
