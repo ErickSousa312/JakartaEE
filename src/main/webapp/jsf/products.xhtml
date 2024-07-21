@@ -20,6 +20,18 @@
         </h:panelGrid>
 
         <h:commandButton value="Save" action="#{productController.saveProduct()}" update="productTable" />
+        <br/>
+
+
+
+        <title>Text Example with Ajax</title>
+        <h:inputText id="text" value="#{testeText.text}">
+            <f:ajax event="keyup" render="outputValue"/>
+        </h:inputText>
+        <h:outputText id="outputValue" value="#{testeText.returnText()}"/>
+
+
+
 
         <h2>Products List</h2>
         <h:dataTable id="productTable" var="product" value="#{productController.products}" >
