@@ -14,7 +14,7 @@ import java.util.List;
 @Named
 public class ProductController {
 
-    @EJB
+    @Inject
     private ProductServiceEJB productService;
 
     private List<Product> products;
