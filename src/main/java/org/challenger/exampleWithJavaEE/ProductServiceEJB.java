@@ -22,13 +22,18 @@ public class ProductServiceEJB  {
     }
 
     public void addProduct(Product product) {
-
+        entityManager.persist(product);
     }
 
-    public void deleteProduct(Product product) {
+    public void deleteProduct(Long productId) {
+        Product product = entityManager.find(Product.class, productId);
+        if (product != null) {
+            entityManager.remove(product);
+        }
 
     }
 
     public void updateProduct(Product product) {
+        entityManager.merge(product);
     }
 }

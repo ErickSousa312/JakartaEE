@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Product Management</title>
 </h:head>
@@ -9,35 +9,37 @@
     <h1>Product Management</h1>
 
     <h:form id="productForm">
-        <p:messages autoUpdate="true" />
+        <h:messages autoUpdate="true" />
 
         <h:panelGrid columns="2">
             <h:outputLabel for="name" value="Name:" />
-            <p:inputText id="name" value="#{productController.newProduct.name}" required="true" />
+            <h:inputText id="name" value="#{productController.newProduct.name}" required="true" />
 
             <h:outputLabel for="price" value="Price:" />
-            <p:inputText id="price" value="#{productController.newProduct.price}" required="true" />
+            <h:inputText id="price" value="#{productController.newProduct.price}" required="true" />
         </h:panelGrid>
 
-        <p:commandButton value="Save" action="#{productController.saveProduct}" update="productTable" />
+        <h:commandButton value="Save" action="#{productController.saveProduct()}" update="productTable" />
 
         <h2>Products List</h2>
-        <p:dataTable id="productTable" var="product" value="#{productController.products}" paginator="true"
-                     rows="10" emptyMessage="No products found.">
-            <p:column headerText="ID">
+        <h:dataTable id="productTable" var="product" value="#{productController.products}" >
+            <h:column>
                 <h:outputText value="#{product.id}" />
-            </p:column>
-            <p:column headerText="Name">
+            </h:column>
+            <h:column>
+                <h1>name</h1>
                 <h:outputText value="#{product.name}" />
-            </p:column>
-            <p:column headerText="Price">
+            </h:column>
+            <h:column>
+                <h1>Price</h1>
                 <h:outputText value="#{product.price}" />
-            </p:column>
-            <p:column headerText="Actions">
-                <p:commandButton value="Delete" action="#{productController.deleteProduct(product.id)}"
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandButton value="Delete" action="#{productController.deleteProduct(product.id)}"
                                  update="productTable" />
-            </p:column>
-        </p:dataTable>
+            </h:column>
+        </h:dataTable>
     </h:form>
 </h:body>
 </html>

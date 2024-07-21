@@ -32,6 +32,7 @@ public class Product implements Serializable {
     }
 
     public String getName() {
+        System.out.println("getName: " + name);
         return name;
     }
 

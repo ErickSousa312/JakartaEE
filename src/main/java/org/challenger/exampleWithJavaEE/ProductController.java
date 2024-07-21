@@ -33,7 +33,7 @@ public class ProductController {
     }
 
     public void deleteProduct(Long productId) {
-        productService.deleteProduct(newProduct);
+        productService.deleteProduct(productId);
         products = productService.getAllProducts();
     }
 
@@ -46,7 +46,7 @@ public class ProductController {
     }
 
     public List<Product> getProducts() {
-        return products;
+        return productService.getAllProducts();
     }
 
     public void setProducts(List<Product> products) {
