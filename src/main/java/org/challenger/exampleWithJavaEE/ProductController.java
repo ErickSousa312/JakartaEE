@@ -9,7 +9,7 @@ import org.challenger.exampleWithJavaEE.entity.Product;
 
 import java.util.List;
 
-
+//isso é manageBean
 @RequestScoped
 @Named
 public class ProductController {

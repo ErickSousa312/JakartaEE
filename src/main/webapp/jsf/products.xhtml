@@ -20,15 +20,31 @@
         </h:panelGrid>
 
         <h:commandButton value="Save" action="#{productController.saveProduct()}" update="productTable" />
+        <h:commandButton value="Save2" action="teste"  />
         <br/>
 
 
 
-        <title>Text Example with Ajax</title>
+        <h2>Text Example with Ajax</h2>
+        <h:outputLabel for="text" value="Name com ajax com JAVA:" />
         <h:inputText id="text" value="#{testeText.text}">
             <f:ajax event="keyup" render="outputValue"/>
         </h:inputText>
+        <br/>
+        <h:outputLabel for="text2" value="Name com ajax com KOTLIN:" />
+        <h:inputText id="text2" value="#{testeText2.text}">
+            <f:ajax event="keyup" render="outputValue2 outputValue3" />
+        </h:inputText>
+        <br/>
+        <h:outputLabel for="outputValue" value="saida Java normal com uppercase:" />
         <h:outputText id="outputValue" value="#{testeText.returnText()}"/>
+        <br/>
+        <h:outputLabel for="outputValue2" value="saida Kotlin:" />
+        <h:outputText id="outputValue2" value="#{testeText2.getTexto()}"/>
+        <br/>
+        <h:outputLabel for="outputValue3" value="saida Kotlin get explicito:" />
+        <h:outputText id="outputValue3" value="#{testeText2.getTexto2()}"/>
+        <br/>
 
 
 
