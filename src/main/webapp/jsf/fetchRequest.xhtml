@@ -22,11 +22,19 @@
    </script>
 </h:head>
 <h:body>
-   <h1>Fetch API Example</h1>
-   <h:commandButton value="pegar os dados do servlet" onclick="fetchData()"/>
+   <h1>Fetch API Example and redirect</h1>
+   <h:commandButton value="pegar os dados do servlet" onclick="fetchData()"/><br/>
    <h:outputText id="response">
       <!-- A resposta do Fetch será inserida aqui -->
-   </h:outputText>
+   </h:outputText><br/>
+   <h:form id="productForm">
+      <h:commandButton value="/teste.xhtml" action="#{teste.redirect}"/><br/>
+      <h:commandButton value="/teste" action="#{teste.redirect()}"/> <br/>
+      <h:commandButton value="teste" outcome=""/><br/>
+      <h:commandButton value="com Context e redirect" action="#{teste.getRedirect()}"  />
+      <h:commandButton value="Com oNclik" onclick="#{teste.redirect()}" />
+   </h:form>
+   <h:commandButton value="Com oNclik" onclick="#{teste.redirect()}" onkeypress="#{teste.redirect()}" />
 
 </h:body>
 </html>
