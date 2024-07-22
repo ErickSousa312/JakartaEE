@@ -7,7 +7,7 @@ import jakarta.inject.Named
 @Named
 //Se vc trocar de guia ele vai manter esse estado
 @ApplicationScoped
-@ViewScoped
+//@ViewScoped
 class TesteText2 {
 //    @JvmField
     var text = ""
