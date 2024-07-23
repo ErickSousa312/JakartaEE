@@ -10,8 +10,6 @@
     <packaging>war</packaging>
 
     <dependencies>
-
-
         <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
