@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Product Management</title>
+</h:head>
+<h:body>
+    <h1>Product Management</h1>
+
+    <h:form id="productForm">
+        <h:messages autoUpdate="true" />
+
+        <h:panelGrid columns="2">
+            <h:outputLabel for="name" value="Name:" />
+            <h:inputText id="name" value="#{productController.newProduct.name}" required="true" />
+
+            <h:outputLabel for="price" value="Price:" />
+            <h:inputText id="price" value="#{productController.newProduct.price}" required="true" />
+        </h:panelGrid>
+
+        <h:commandButton value="Save" action="#{productController.saveProduct()}" update="productTable" />
+        <h:commandButton value="Save2" action="teste"  />
+        <br/>
+
+
+
+        <h2>Text Example with Ajax</h2>
+        <h:outputLabel for="text" value="Name com ajax com JAVA:" />
+        <h:inputText id="text" value="#{testeText.text}">
+            <f:ajax event="keyup" render="outputValue"/>
+        </h:inputText>
+        <br/>
+        <h:outputLabel for="text2" value="Name com ajax com KOTLIN:" />
+        <h:inputText id="text2" value="#{testeText2.text}">
+            <f:ajax event="keyup" render="outputValue2 outputValue3" />
+        </h:inputText>
+        <br/>
+        <h:outputLabel for="outputValue" value="saida Java normal com uppercase:" />
+        <h:outputText id="outputValue" value="#{testeText.returnText()}"/>
+        <br/>
+        <h:outputLabel for="outputValue2" value="saida Kotlin:" />
+        <h:outputText id="outputValue2" value="#{testeText2.getTexto()}"/>
+        <br/>
+        <h:outputLabel for="outputValue3" value="saida Kotlin get explicito:" />
+        <h:outputText id="outputValue3" value="#{testeText2.getTexto2()}"/>
+        <br/>
+
+
+
+
+        <h2>Products List</h2>
+        <h:dataTable id="productTable" var="product" value="#{productController.products}" >
+            <h:column>
+                <h:outputText value="#{product.id}" />
+            </h:column>
+            <h:column>
+                <h1>name</h1>
+                <h:outputText value="#{product.name}" />
+            </h:column>
+            <h:column>
+                <h1>Price</h1>
+                <h:outputText value="#{product.price}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandButton value="Delete" action="#{productController.deleteProduct(product.id)}"
+                                 update="productTable" />
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>
