@@ -23,6 +23,6 @@ public class TesteText {
         this.text = text.toUpperCase();
     }
 
-
-
+    public TesteText() {
+    }
 }
