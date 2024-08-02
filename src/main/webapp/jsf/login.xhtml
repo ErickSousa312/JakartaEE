@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:head="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+>
+<h:head>
+   <title>Fetch API Example</title>
+   <script type="text/javascript">
+      async function fetchData() {
+         try {
+            let response = await fetch('/javaEE_Estudo/dataServlet');
+            if (!response.ok) {
+               throw new Error('Network response was not ok');
+            }
+            let data = await response.json();
+            console.log(data)
+            console.log("acima fica o dados que vieram do servlet")
+            document.getElementById('response').innerText = data.teste;
+         } catch (error) {
+            console.error('There was an error!', error);
+         }
+      }
+   </script>
+</h:head>
+<h:body>
+
+</h:body>
+</html>
